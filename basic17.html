@@ -30,6 +30,12 @@
         myFunc(add,20,30);
         myFunc(div,100,10);
 
+        function showCount(count){
+            alert(count ?? "unknown"); // ?? 연산자는 count에 10이 들어오면 10을 출력 아무것도 안들어오면 unknown
+        }
+
+        showCount();
+
     </script>
 </body>
 </html>
