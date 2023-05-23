@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<body>
+    
+    <script>
+        sayHello("홍길동","이순신","강감찬");
+        //함수 정의
+        function sayHello(name1="익명", name2="무명"){
+            console.log(name1+"Say Hello");
+            console.log(name2+"Say Hello");
+        }
+        //함수 표현식
+        let sayHello1 = function(number){
+            console.log("Hello Js  "+number);
+        }
+
+        sayHello1();
+        sayHello1(10);
+
+        //화살표 함수
+        let sayHello2 =()=>{
+            console.log("화살표 함수로 Hello Js  "+number);
+        }    
+
+        sayHello2();
+
+    </script>
+</body>
+</html>
