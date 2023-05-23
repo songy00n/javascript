@@ -17,17 +17,19 @@
             return x/y;
         }
         let divResult = div(10,20);
-
+        //함수 표현식으로
         let div1 = function(x, y){return x/y;}
-
+        //화살표 함수로
         let div2 = (x,y) => x/y;
-
+        //콜백함수
         function myFunc(callback,x,y){
             result = callback(x,y);
-            console.log(x+""+y+""+result);
+            console.log(x+" "+y+" !!! "+result);
         }
 
-        console.log(myFunc(add, 20,30));
+        myFunc(add,20,30);
+        myFunc(div,100,10);
+
     </script>
 </body>
 </html>
