@@ -11,28 +11,46 @@
 <table align=center cellpadding=0 cellspacing=0 border=1 bordercolor=white bordercolorlight=cornflowerblue>
     <tr>
         <td colspan=2 bgcolor=#33CCFF align=center> 
-        <font size="6" color="white" face="comic sans ms">Calculator</font></td>
+        <font size="6" color="white" face="comic sans ms">calculator</font></td>
     </tr>
     <tr width="213" height="297">
         <td><img src="cal.jpg"></td>
         <td align=center width="150">
         
             <form>
-            <!-- 코딩2 --><input type=button value="계산하기">
+                <input type="input" id="expression" readonly>
+                <div id="display"></div>
+                <hr>
+                <div class="btn_area">
+                    <input type="button" value="1" onclick="compute(1)" />
+                    <input type="button" value="2" onclick="compute(2)" />
+                    <input type="button" value="3" onclick="compute(3)" />
+                    <input type="button" value="4" onclick="compute(4)" />
+                    <input type="button" value="5" onclick="compute(5)" />
+                    <input type="button" value="6" onclick="compute(6)" />
+                    <input type="button" value="7" onclick="compute(7)" />
+                    <input type="button" value="8" onclick="compute(8)" />
+                    <input type="button" value="9" onclick="compute(9)" />
+                    <input type="button" value="0" onclick="compute(0)" />
+                    <input type="button" value="AC" onclick="clear()" class="clear_btn" />
+                    <input type="button" value="+" onclick="compute('+')" class="blue_btn" />
+                    <input type="button" value="-" onclick="compute('-')" class="blue_btn" />
+                    <input type="button" value="/" onclick="compute('/')" class="blue_btn" />
+                    <input type="button" value="*" onclick="compute('*')" class="blue_btn" />
+                    <input type="button" value="." onclick="compute('.')" />
+                </div>
+                <input type="button" value="=" onclick="result()" class="long_btn" />
+                <input type="button" value="OFF" onclick="off()" class="green_btn"/>
             </form>
-    
-        
         </td>
     </tr>
     <tr>
         <td colspan=2 bgcolor=#33CCFF height=5>&nbsp;</td>
     </tr>
     </table>
-    
-    
+
     <script>
-        var calc = prompt("계산할 수식을 입력하세요");
-        document.write(calc);
+        
     </script>
     
     </body>
