@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<body>
+    
+    <script>
+        let  obj1 = new Object();
+        let obj2 = {
+            studentName: "홍길동", // key = property key = 식별자 
+            studentAge: 23,
+            "likes computer": "yes"
+        };
+        alert(obj2["likes computer"]);
+        alert(obj2.studentName);
+        alert(obj2[studentAge]);
+
+        obj2.dept = "컴퓨터공학과";
+        obj2.tel = "010-1234-5678";
+        alert(obj2[dept]);
+        alert(obj2.tel);
+
+        delete obj2.dept;
+        delete obj2.studentName;
+
+        alert(obj2.dept); //undefined
+        alert(obj2.studentName); //undefined
+        alert(obj2.studentName);
+
+    </script>
+</body>
+</html>
