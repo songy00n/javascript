@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<body>
+    
+    <script>
+        let obj1 = {
+            a:"1",
+            b:"2",
+            c:"3",
+        }
+
+        let json = JSON.stringify(obj1);
+
+        // let user = {
+        //    name: "aa",
+        //    sayHello(){
+        //        alert("안녕");
+        //    }, 
+        //    [Symbol("id")]: 123,
+        //    something: undefined,
+        // }
+        // alert(JSON.stringify(user));
+
+        alert(typeof json);
+        alert(JSON.stringify(test)); // "", '', ``
+        alert(JSON.stringify({name:"a", age:"23"}));
+
+
+        let user = {
+            name: "홍길동",
+            age: 28,
+            toString(){
+                return `{name}: "${this.name}", age: ${this.age}}`;
+            }
+        };
+        alert (user);
+
+    </script>
+</body>
+</html>

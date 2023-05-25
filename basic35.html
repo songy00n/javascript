@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<body>
+    
+    <script>
+        let room = {
+        number: 23,
+        toJson(){
+            return this.number;
+        }
+        };
+
+        let meetup = {
+        title: "Conference",
+        date: new Date(Date.UTC(2023, 5, 25)),
+        room
+        };
+
+        alert( JSON.stringify(meetup) );
+        /*
+        {
+            "title":"Conference",
+            "date":"2023-05-25T00:00:00.000Z",  // (1)
+            "room": {"number":23}               // (2)
+        }
+        */
+
+        let numbers = "[0, 1, 2, 3, 4]";
+
+        alert(typeof numbers);
+
+        numbers = JSON.parse(numbers);
+        
+        let userData = '{ "name": "a", "age": "23", "isAdmin":false, "freinds": [0,1,2,3], "nu": null}'
+        alert(typeof userData);        
+        let userJSONData = JSON.parse(userData);
+        alert(userJSONData.name);
+
+    </script>
+</body>
+</html>
