@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<body>
+    
+    <script>
+        let student = {};
+        student['likes computer'] = true;
+        alert(student['likes computer']);
+        delete student['like computer'];
+
+        let user = {
+            name: "Jhon",
+            age: 30,
+        }
+
+        let key = prompt("이름은?");
+        // alert(user[key]); // Jhon, 30
+        alert(user.key); // undefined
+
+        let grade = {
+            name: "홍길동",
+            dept: "컴퓨터공학과",
+            age: 23,
+            gender: "남자",
+            teacher: "김길동",
+            java: 100,
+            python: 95,
+            dataStru: 85
+        }
+
+        let subject = prompt("알고싶은 과목 점수는?");
+        alert(grade[subject]);
+        grade[subject] = grade;
+        alert(grade[subject]);
+    </script>
+</body>
+</html>
