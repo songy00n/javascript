@@ -13,12 +13,14 @@
         
         let user = {
             firstName: "홍길동",
-            sayHi() {
+            sayHi(name) {
                 let first = { firstName: "김길동"};
-                let arrow = () => alert(first.firstName + " " + this.firstName); //함수 정의
+                let arrow = () => alert(first.firstName + " " + this.firstName + " " + name); //함수 정의
                 arrow(); // 화살표함수 호출
             }
         }
+
+        user.sayHi("홍길동");
 
     </script>
 </body>
