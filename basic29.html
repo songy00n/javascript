@@ -10,9 +10,11 @@
     
     
     <script>
+
         let user = { name: "John" };
         let admin = { name: "Admin" };
 
+        // user 객체와 admin 객체에서 공통으로 들어가는 함수를 외부로 정의한 후에 키로 정의함
         function sayHi() {
         alert( this.name );
         }
