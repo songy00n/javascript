@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<body>
+    
+    <script>
+        let fruit = ["사과","배","바나나","복숭아"];
+        fruit.push["수박"];
+        fruit[Math.floor(fruit.length -1)/2] = "참외";
+        fruit.shift();
+        fruit.unshift('파인애플','자몽');
+        alert(fruit);
+
+        function sumInput(){
+            let number = [];
+
+            while(true){
+                let value = prompt("숫자는?");
+                if(value =="" || value === null || !isFinite(value)) break;
+                number.push( +value );
+            }
+            let sum = 0;
+            for(let n of number){
+                sum += n;
+            }
+            return sum;
+        }
+
+        alert(sumUnput());
+    </script>
+</body>
+</html>
