@@ -51,3 +51,32 @@ function makeWorker() {
     alert (counter.down()); // -1
   }
 
+let phrase = "Hello";
+if(true){
+    let user = "honggildong";
+    function sayHi(){
+        alert(`${phrase}, ${user}`);
+    }
+    sayHi();
+}
+
+function sum(a){
+
+return function(b){
+    return a+b;
+}
+
+}
+
+alert(sum(1),(2)); // 3 = 1 + 2
+alert(sum(5),(1)); // 6 + 5 + 1
+
+
+function isBetween(a,b){
+    for(let i=0; i<=b; i++){
+        return i;
+    }
+}
+
+let arr = [1,2,3,4,5,6,7];
+alert(arr.filter(isBetween(3,6)));
