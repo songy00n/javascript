@@ -3,5 +3,13 @@
     console.log(message);
 }
 
-    console.log("이곳은 {}밖입니다"+message);
-    
+{
+    let message = "안녕히 가세요";
+    console.log(message);
+}
+
+function s(name){
+    if(name == 'a'){
+        let ifInVal = 10;
+    }
+}
