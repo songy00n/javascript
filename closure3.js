@@ -40,7 +40,7 @@ function makeWorker() {
     }
 
     this.down = function(){
-        return -- count;
+        return --count;
     }
 
     alert (counter.up()); // 0 
