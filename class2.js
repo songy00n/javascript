@@ -1,6 +1,7 @@
 // setter getter
 
 class Member {
+    // 인스턴스 클래스
     name;
     score;
     constructor(name, score){
