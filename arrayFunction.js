@@ -91,3 +91,8 @@ console.log(sArr.filter(x=> x.toUpperCase() === 'AA'));
 // '연개소문' 찾기
 console.log(ineMember.find((name)=> name === '연개소문'));
 
+// '연개소문'의 인덱스 번호를 찾고싶음
+console.log(ineMember.findIndex((name)=> name === '연개소문'));
+
+// let numbers2 = [1,9,7,5,5,3]; 모두 곱하기
+console.log(numbers.reduce((a,b)=> a*b, 1));
