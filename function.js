@@ -71,4 +71,3 @@ let multiplyAll(...args) => {
 console.log(multiplyAll(3,4,5,6)); // 모두 곱해서 출력
 
 console.log(multiplyAll(1,2,3,4,5,6,7,8)); // 모두 곱해서 출력
-
