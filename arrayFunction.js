@@ -96,3 +96,4 @@ console.log(ineMember.findIndex((name)=> name === '연개소문'));
 
 // let numbers2 = [1,9,7,5,5,3]; 모두 곱하기
 console.log(numbers.reduce((a,b)=> a*b, 1));
+
