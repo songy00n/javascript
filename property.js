@@ -166,3 +166,17 @@ Object.freeze(hong12);
 console.log(Object.isFrozen(hong12)); // true
 console.log(Object.isFrozen(hong12['subhong12'])); // false
 
+// 화살표 함수로 만든 함수는 객체가 되지않음
+const MemberArrow = (name, year)=>{
+    this.name = name;
+    this.year = year;
+}
+
+const ima = new MemberArrow('홍길동', 2000);
+console.log(ima);
+
+const MemberF = function(name, year){
+
+}
+
+
