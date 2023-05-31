@@ -1,5 +1,8 @@
-// prototype
-// _proto_
+// .prototype : 자식이 자신이 받은 유전자를 확인할 수 있음
+// _proto_ :  모든 객체에 존재하는 프로퍼티임, 상속에서 부모클래스에 해당되는 값
+// circular reference : 서로가 서로를 참조함
+// prototype : constructor 프로퍼티 하나만 있는 객체를 가르킴
+
 
 const testObj = {};
 console.log(typeof testObj);
@@ -49,6 +52,7 @@ console.log(soon.sayHello());
 console.log(young.sayHello());
 
 // sayHello()를 부모한테 재정의함
+// 공간의 낭비가 없다는 장점이 있음
 
 Member2.prototype.sayHello = function(){
     return `${this.name}이 인사합니다`;
@@ -59,5 +63,5 @@ const young2 = new Member('홍길영',2001);
 console.log(soon2.sayHello());
 console.log(young2.sayHello());
 
-console.log(soon2.sayHello === young2.sayHello); // 값, 주소 같음
+console.log(soon2.sayHello === young2.sayHello); // true: 값, 주소 같음
 
