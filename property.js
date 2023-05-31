@@ -65,3 +65,104 @@ console.log(Object.getOwnPropertyDescriptor(hong2, 'name'));
 for(let key in hong2){
     console.log(key);
 }
+
+// configurable을 false로 만들기
+console.log('-----------------');
+Object.defineProperties(hong2, 'height', {
+    writable: true,
+    configurable: false,
+});
+
+console.log(Object.getOwnPropertyDescriptor(hong2,'height'));
+
+Object.defineProperties(hong2, 'height', {
+    value: 178, // 바뀜
+});
+
+console.log(Object.getOwnPropertyDescriptor(hong2,'height'));
+
+Object.defineProperties(hong2, 'height', {
+    writable: false, 
+});
+// writable: false, cofigurable: false면 Object.definedProperty 사용 못함
+Object.defineProperties(hong2, 'height', {
+    value: 188, // 안바뀜
+});
+
+console.log(Object.getOwnPropertyDescriptor(hong2,'height'));
+
+const hong10 = {
+    name: '홍길동',
+    year: 2000,
+    get age(){
+        return new Date().getFullYear - this.year;
+    },
+    set age(age){
+        this.year = new Date().getFullYear() - age;
+    }
+};
+
+console.log(hong10);
+
+// extensible: 확장 가능 false로 하면 추가는 안되고 삭제만 됨
+console.log(Object.isExtensible(hong10)); // true
+hong10['position'] = 'developer';
+console.log(hong10);
+Object.preventExtensions(hong10); // 확장을 막음
+hong10['position'] = 'developer'; // 확장을 할 수 없음
+console.log(hong10);
+
+
+// seal: 밀봉하기, 추가나 삭제 안됨
+console.log(Object.isSealed(hong10)); // false
+Object.seal(hong10);
+console.log(Object.isSealed(hong10)); // true
+
+// 값을 추가하기
+hong10['groupname'] = hana;
+console.log(hong10);
+
+// 값을 삭제하기
+delete hong10['name'];
+console.log(hong10);
+
+// 밀봉된 것을 해제하기
+Object.defineProperties(hong10, 'name', {
+    writable: true,
+});
+
+
+// freeze: 가장 높은 등급 동결하기
+console.log(Object.isFrozen(hong10));
+Object.freeze(hong10);
+
+// 상위 객체{하위객체} 상태인데 상위 객체를 동결했다면 하위 객체도 동결되지는 않음
+const hong11 = {
+    name: '홍길동',
+    year: 2000,
+
+    subhong11: {
+        name: '아들 홍길동',
+        year: 2020, 
+    }
+}
+
+Object.freeze(hong11);
+console.log(Object.isFrozen(hong11)); // true
+console.log(Object.isFrozen(hong11['subhong11'])); // false
+
+// 하위 객체 동결시키면 상위 객체 동결되지는 않음
+const hong12 = {
+    name: '홍길동',
+    year: 2000,
+
+    subhong12: {
+        name: '아들 홍길동',
+        year: 2020, 
+    }
+}
+
+Object.freeze(hong12);
+console.log(Object.isFrozen(hong12)); // true
+console.log(Object.isFrozen(hong12['subhong12'])); // false
+
