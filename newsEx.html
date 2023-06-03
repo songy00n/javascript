@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>뉴스</title>
+  <style>
+    table {
+      width: 500px;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tbody id="newsTableBody"></tbody>
+  </table>
+  <script>
+
+    var jsonData1 = [
+      {"title":"뉴욕증시, 부채한도 합의 표결 주시 속 하락⋯나스닥 0.63%↓","link":"https://n.news.naver.com/mnews/article/057/0001746201?sid=101"},
+      {"title":"[속보] 뉴욕 증시, 부채상한 표결 경계에 하락 마감...다우 0.41%↓ 나스닥 0...","link":"https://n.news.naver.com/mnews/article/003/0011890421?sid=104"},
+      {"title":"[뉴욕마감]나스닥 0.6% 하락…6월 금리인상 놓고 연준 불협화음","link":"https://n.news.naver.com/mnews/article/421/0006840770?sid=101"},
+      {"title":"뉴욕증시, 부채한도 잠정 합의에도 혼조…나스닥 0.3%↑마감","link":"https://n.news.naver.com/mnews/article/001/0013972791?sid=101"},
+      {"title":"[미장브리핑] 5월 나스닥 5.8% 상승","link":"https://n.news.naver.com/mnews/article/092/0002294012?sid=105"}
+    ];
+
+    var jsonData2 = [
+        {"title":"연준 \"고용·인플레 둔화 조짐\"…고위인사들, 6월 금리동결 지지","link":"https://n.news.naver.com/mnews/article/001/0013975577?sid=104"},
+        {"title":"올해 투표권 있는 美연준 고위급, 연이어 6월 금리동결 시사","link":"https://n.news.naver.com/mnews/article/366/0000905910?sid=104"},{"title":"연준, 6월 건너 뛰고 뒤에 금리 올리나","link":"https://n.news.naver.com/mnews/article/014/0005020852?sid=101"},{"title":"블랙록 CEO \"美 연준, 최대 4차례 추가 금리인상 가능\"","link":"https://n.news.naver.com/mnews/article/215/0001104999?sid=101"},{"title":"미 연준 매파, 금리 추가 인상에 \"멈출 이유 못 봐\"","link":"https://n.news.naver.com/mnews/article/055/0001062011?sid=104"}
+    ];
+
+    var jsonData3 = [
+        {"title":"'BTS 활동 중단' 미리 알고 주식 판 하이브 직원들 檢 송치(종합)","link":"https://n.news.naver.com/mnews/article/003/0011889498?sid=101"},{"title":"BTS 활동 중단 발표 전에 기획사 직원들 주식 매도","link":"https://n.news.naver.com/mnews/article/056/0011495742?sid=101"},{"title":"[특징주] DGP, 주식병합 후 거래재개 첫날 20% 넘게 올라","link":"https://n.news.naver.com/mnews/article/366/0000905969?sid=101"},{"title":"채권 팔고 주식 사들인 기관들…외화증권 투자 1분기 48.4억달러↑","link":"https://n.news.naver.com/mnews/article/421/0006841766?sid=101"},{"title":"'BTS 단체활동 중단' 발표 전 주식 팔아치운 하이브 직원들 검찰 송치","link":"https://n.news.naver.com/mnews/article/437/0000345288?sid=101"}
+    ];
+
+    var jsonData4 = [
+        {"title":"\"미중 무역갈등, 영국 경제에 심각한 피해…AI·양자 키워야\"","link":"https://n.news.naver.com/mnews/article/001/0013970192?sid=104"},{"title":"미중 '반도체 전쟁' 와중에 한국에 손 내미는 중국?","link":"https://n.news.naver.com/mnews/article/055/0001061144?sid=104"},{"title":"[스트레이트] 패권 전쟁, 위기의 한국 경제","link":"https://n.news.naver.com/mnews/article/214/0001275758?sid=101"},{"title":"올해도 무역적자 300억 달러 넘는다…성장률 1.4%로 내렸다","link":"https://n.news.naver.com/mnews/article/081/0003365041?sid=101"},{"title":"미중 패권전 속 '마이크론 사태' 촉발…우리 선택은?[글로벌 공급망 재편①]","link":"https://n.news.naver.com/mnews/article/003/0011882922?sid=101"}
+    ];
+
+    var jsonData5 = [
+        {"title":"신한은행, 환율 시스템 오류...3시간동안 외환 서비스 중단","link":"https://n.news.naver.com/mnews/article/215/0001105059?sid=101"},{"title":"환율 하락에 여행 증가…1분기 해외 카드사용 14.8%↑","link":"https://n.news.naver.com/mnews/article/003/0011888767?sid=101"},{"title":"\"1200원대로 내려갈까?\" 하반기 환율, 반도체·美·中 경기 따라 달라진다","link":"https://n.news.naver.com/mnews/article/014/0005020820?sid=101"},{"title":"장중 환율, 하락 출발해 1320원 중심 등락","link":"https://n.news.naver.com/mnews/article/018/0005498146?sid=101"},{"title":"[달러·원] 환율 6.2원 내린 1321.0원 출발","link":"https://n.news.naver.com/mnews/article/421/0006840970?sid=101"}
+    ];
+
+
+    var tableBody = document.getElementById("newsTableBody");
+    for (var i = 0; i < jsonData1.length; i++) {
+      var row = document.createElement("tr");
+      var titleCell = document.createElement("td");
+      var linkCell = document.createElement("td");
+
+      var link = document.createElement("a");
+      link.href = jsonData1[i].link;
+      link.textContent = jsonData1[i].title;
+
+      titleCell.appendChild(link);
+      row.appendChild(titleCell);
+      row.appendChild(linkCell);
+      tableBody.appendChild(row);
+    }
+    for (var i = 0; i < jsonData2.length; i++) {
+      var row = document.createElement("tr");
+      var titleCell = document.createElement("td");
+      var linkCell = document.createElement("td");
+
+      var link = document.createElement("a");
+      link.href = jsonData2[i].link;
+      link.textContent = jsonData2[i].title;
+
+      titleCell.appendChild(link);
+      row.appendChild(titleCell);
+      row.appendChild(linkCell);
+      tableBody.appendChild(row);
+    }
+    for (var i = 0; i < jsonData3.length; i++) {
+      var row = document.createElement("tr");
+      var titleCell = document.createElement("td");
+      var linkCell = document.createElement("td");
+
+      var link = document.createElement("a");
+      link.href = jsonData3[i].link;
+      link.textContent = jsonData3[i].title;
+
+      titleCell.appendChild(link);
+      row.appendChild(titleCell);
+      row.appendChild(linkCell);
+      tableBody.appendChild(row);
+    }
+    for (var i = 0; i < jsonData4.length; i++) {
+      var row = document.createElement("tr");
+      var titleCell = document.createElement("td");
+      var linkCell = document.createElement("td");
+
+      var link = document.createElement("a");
+      link.href = jsonData4[i].link;
+      link.textContent = jsonData4[i].title;
+
+      titleCell.appendChild(link);
+      row.appendChild(titleCell);
+      row.appendChild(linkCell);
+      tableBody.appendChild(row);
+    }
+    for (var i = 0; i < jsonData5.length; i++) {
+      var row = document.createElement("tr");
+      var titleCell = document.createElement("td");
+      var linkCell = document.createElement("td");
+
+      var link = document.createElement("a");
+      link.href = jsonData5[i].link;
+      link.textContent = jsonData5[i].title;
+
+      titleCell.appendChild(link);
+      row.appendChild(titleCell);
+      row.appendChild(linkCell);
+      tableBody.appendChild(row);
+    }
+  </script>
+</body>
+</html>
